@@ -1,0 +1,30 @@
+ 
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      docker: latest
+  pre_build:
+    commands:
+      - echo Logging in to Docker...
+      - echo docker login -u <username> -p <password>
+  build:
+    commands:
+      - echo Build started on `date`
+      - cd StockPricesApp
+      - mvn clean install
+      - echo Building the Docker image...          
+      - docker build -t stock-app .
+      - docker tag stock-app:latest 
+  post_build:
+    commands:
+      - echo Pushing the Docker image...
+      - docker push stock-app:latest
+
+ 
+ 
+ 
+ 
+     
+     
