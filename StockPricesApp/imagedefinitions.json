@@ -1,0 +1,6 @@
+[
+	{
+		"name":"stockapp-docker",
+		"imageUri":"toufiks/stock-app:latest"
+	}
+]
